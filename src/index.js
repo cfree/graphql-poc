@@ -1,5 +1,6 @@
 const { GraphQLServer } = require('graphql-yoga')
 const fetch = require('node-fetch');
+require('dotenv').config();
 
 const typeDefs = `
   type Query {
@@ -61,11 +62,11 @@ const resolvers = {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
-          'user-key': '23aae7983332d37c7203ef7da0f1f5d0',
+          'user-key': process.env.ZOMATO_KEY,
         }
       };
 
-      const googleKey = 'AIzaSyBYY_RRnYaVivgbxADQq0ysBGJQR-1grgA';
+      const googleKey = process.env.GLOC_KEY;
 
       return fetch(`https://developers.zomato.com/api/v2.1/locations?query=${args.city}`, zomatoOptions)
         .then(result => result.json())
