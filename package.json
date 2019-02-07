@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "graphql-yoga": "1.17.4",
+    "node-fetch": "^2.3.0"
+  }
+}
